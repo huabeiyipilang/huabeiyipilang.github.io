@@ -1,76 +1,22 @@
-<html>
-<script src="color.js">
-</script>
-<style>
-    .divboard {
-        width: 100px;
-        height: 20px;
-        border: 1px solid #000
-    }
-</style>
+---
+layout: default
+---
 
-<head>Color Tools</head>
-
-<body onload="onLoad()">
-    <div id="color_panel">
-        <form>
-            <fieldset>
-                <legend>Color Tool</legend>
-                <table>
-                    <tr>
-                        <td>Color</td>
-                        <td>
-                            <div id="color_display" class="divboard"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>ARGB</td>
-                        <td>
-                            <input type="text" id="value_argb" onchange="onValueChanged(this)" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>A</td>
-                        <td>16进制
-                            <input type="text" id="value_a_16" onchange="onValueChanged(this)" />
-                        </td>
-                        <td>10进制
-                            <input type="text" id="value_a_10" onchange="onValueChanged(this)" />
-                        </td>
-                        <td>透明度
-                            <input type="text" id="value_a_percent" onchange="onValueChanged(this)" />%</td>
-                    </tr>
-                    <tr>
-                        <td>R</td>
-                        <td>16进制
-                            <input type="text" id="value_r_16" onchange="onValueChanged(this)" />
-                        </td>
-                        <td>10进制
-                            <input type="text" id="value_r_10" onchange="onValueChanged(this)" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>G</td>
-                        <td>16进制
-                            <input type="text" id="value_g_16" onchange="onValueChanged(this)" />
-                        </td>
-                        <td>10进制
-                            <input type="text" id="value_g_10" onchange="onValueChanged(this)" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>B</td>
-                        <td>16进制
-                            <input type="text" id="value_b_16" onchange="onValueChanged(this)" />
-                        </td>
-                        <td>10进制
-                            <input type="text" id="value_b_10" onchange="onValueChanged(this)" />
-                        </td>
-                    </tr>
-                </table>
-            </fieldset>
-        </form>
-    </div>
-</body>
-
-</html>
+<div class="home">
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <br>
+        <h3>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h3>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y %H:%m" }}</span>
+        <hr id="line">
+		<div class="content">
+		{{ post.excerpt }}
+        </div>
+		<br>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
