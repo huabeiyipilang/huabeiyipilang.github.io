@@ -1,0 +1,3 @@
+[submodule "submodules/DevelopTools"]
+	path = submodules/DevelopTools
+	url = https://github.com/huabeiyipilang/DevelopTools.git
