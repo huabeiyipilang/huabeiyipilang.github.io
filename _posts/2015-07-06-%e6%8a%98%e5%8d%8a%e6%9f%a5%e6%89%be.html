@@ -1,0 +1,43 @@
+---
+layout: post
+title: 折半查找
+date: 2015-07-06 11:12:37.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- 算法
+tags: []
+meta:
+  _edit_last: '1'
+  _syntaxhighlighter_encoded: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>[java]<br />
+    private static int binarySearch(int[] array, int value){<br />
+        //初始化左右指针<br />
+        int left = 0;<br />
+        int right = array.length - 1;</p>
+<p>        //两个指针相遇后结束遍历<br />
+        while(left &lt;= right){</p>
+<p>            //取中间值下标<br />
+            int index = left + (right - left)/2;</p>
+<p>            if(value == array[index]){<br />
+                //目标值与相同中间值，返回<br />
+                return index;<br />
+            }else if(value &lt; array[index]){<br />
+                //目标值小于中间值，右指针改为中间值位置-1<br />
+                right = index - 1;<br />
+            }else{<br />
+                //目标值大于于中间值，左指针改为中间值位置+1<br />
+                left = index + 1;<br />
+            }<br />
+        }<br />
+        return -1;<br />
+    }<br />
+[/java]</p>

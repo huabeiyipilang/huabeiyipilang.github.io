@@ -1,0 +1,30 @@
+---
+layout: post
+title: eclipse错误：GC overhead limit exceeded
+date: 2015-08-11 10:06:59.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- 问题
+tags: []
+meta:
+  _edit_last: '1'
+  _wpas_done_all: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>原因是eclipse内存配置太小，需要增加内存。配置如下：</p>
+<p>1、找到配置文件eclipse.ini</p>
+<ul>
+<li>Windows：在eclipse的安装目录下</li>
+<li>Mac:eclipse.app显示包内容，在Contents\MacOs\目录下</li>
+</ul>
+<p>2、修改参数<br />
+-Xms512m -Xmx1024m<br />
+第一个是最小的初始化内存，第二个是最大的占有内存<br />
+还可以加上 -XX:MaxPermSize=1024m这个意思是在编译文件时一直占有最大内存，重启Eclipse</p>

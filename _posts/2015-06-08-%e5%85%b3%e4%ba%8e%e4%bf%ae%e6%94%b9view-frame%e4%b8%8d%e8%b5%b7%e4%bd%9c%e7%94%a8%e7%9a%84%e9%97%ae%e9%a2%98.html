@@ -1,0 +1,24 @@
+---
+layout: post
+title: 关于修改view.frame不起作用的问题
+date: 2015-06-08 16:02:56.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- IOS
+tags: []
+meta:
+  _edit_last: '1'
+  _syntaxhighlighter_encoded: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>尝试实现一个弹出键盘时，改变UITextView高度的功能。结果不起作用，而且不会滚动，不会弹出键盘。修改方式如下：<br />
+[objc]<br />
+_titleView.translatesAutoresizingMaskIntoConstraints = YES;<br />
+[/objc]</p>

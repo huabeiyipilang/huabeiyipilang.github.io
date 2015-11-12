@@ -1,0 +1,23 @@
+---
+layout: post
+title: 关于adapter中bindView()被多次调用的问题
+date: 2012-08-13 03:25:45.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+- 问题
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>如果ListView没有确定的高度,比如height为wrap_content, 无法确定取多少Item来填充ListView.所以被多次调用.<br />
+该问题只需将ListView高度固定,或者fill_parent即可.<br />
+PS: 如果ListView有父layout,则父layout高度必须也为固定值.</p>

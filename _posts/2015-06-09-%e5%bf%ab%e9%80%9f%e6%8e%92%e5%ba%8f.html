@@ -1,0 +1,61 @@
+---
+layout: post
+title: 快速排序
+date: 2015-06-09 17:49:17.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- 算法
+tags: []
+meta:
+  _edit_last: '1'
+  _syntaxhighlighter_encoded: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>基本思想：<br />
+1、算法单元：选择一个key值，将比key值小的放左边，大的放右边。<br />
+2、将key值左右两边按照算法单元进行递归。</p>
+<p>[java]<br />
+    private static void quickSort(int[] a, int from, int to){<br />
+        if(from &gt;= to){<br />
+            return;<br />
+        }</p>
+<p>        int p1 = from;<br />
+        int p2 = to;<br />
+        int key = a[from];</p>
+<p>        //p1,p2相遇是算法单元结束的标志<br />
+        //把比key值小的放左边，比key值大的放右边<br />
+        while(p1 &lt; p2){</p>
+<p>            //p2指针向前移动，直到找到一个比key小的值<br />
+            while(p1 &lt; p2 &amp;&amp; a[p2] &gt; key){<br />
+                p2--;<br />
+            }</p>
+<p>            //把找到的比key小的值，放在p1指针位置（因为之前p1位置的值就是key值，所以不用保存p1的值）<br />
+            if(p1 &lt; p2){<br />
+                a[p1] = a[p2];<br />
+                p1++;<br />
+            }</p>
+<p>            //p1指针向后移动，直到找到一个比key大的值<br />
+            while(p1 &lt; p2 &amp;&amp; a[p1] &lt; key){<br />
+                p1++;<br />
+            }</p>
+<p>            //把找到的比key大的值，房子p2指针位置<br />
+            if(p1 &lt; p2){<br />
+                a[p2] = a[p1];<br />
+                p2--;<br />
+            }<br />
+        }</p>
+<p>        //p1,p2指针相遇，该位置就是key值的位置<br />
+        a[p1] = key;</p>
+<p>        //通过本轮排序之后，以key为分界值，左边都是比key小的，右边都是比key大的<br />
+        //将左右两侧数据段分别按照算法单元进行递归<br />
+        quickSort(a, from, p1 - 1);<br />
+        quickSort(a, p1 + 1, to);<br />
+    }<br />
+[/java]</p>

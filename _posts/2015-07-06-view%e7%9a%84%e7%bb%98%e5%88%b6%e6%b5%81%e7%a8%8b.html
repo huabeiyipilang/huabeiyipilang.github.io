@@ -1,0 +1,39 @@
+---
+layout: post
+title: View的绘制流程
+date: 2015-07-06 11:42:09.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>android中自定义View时经常会需要重写View的onMeasure()，onLayout()和onDraw()方法,下面分别介绍下这三个方法。</p>
+<p>一、onMeasure()方法</p>
+<p>onMeasure(int widthMeasureSpec,int heightMeasureSpec)<br />
+1、调用时间：当控件的父元素放置该控件时，用于告诉父元素该控件需要的大小。</p>
+<p>2、传入参数：widthMeasureSpec，heightMeasureSpec。这两个传入参数由高32位和低16位组成，高32位保存的值叫specMode，可以通过MeasureSpec.getMode()获取；低16位为specSize可以由MeasureSpec.getSize()获取。这两个值是由ViewGroup中的layout_width，layout_height和padding以及View自身的layout_margin共同决定。权值weight也是尤其需要考虑的因素，有它的存在情况可能会稍微复杂点。</p>
+<p>specMode可以取三个值：MeasureSpec.EXACTLY ，MeasureSpec.AT_MOST，MeasureSpec.UNSPECIFIED；specMode与layout_的对应关系如下：</p>
+<p>match_parent － MeasureSpec.EXACTLY：当layout_为match_parent或者为某一具体值的时候specMode为EXACTLY代表精确的值；</p>
+<p>wrap_content － MeasureSpec.AT_MOST：表示能获得的最大尺寸；</p>
+<p>当无法确定尺寸的时候则是 MeasureSpec.UNSPECIFIED，这时候specSize会为最小值（即0）；</p>
+<p>3、可以在onMeasure()中来计算控件的尺寸，然后根据setMeasuredDimension(mWidth,mHeight);方法来告诉父控件此控件需要的尺寸，onMeasure()方法中必须调用此方法。</p>
+<p>4、值得注意的是：</p>
+<p>1)specSize和传入setMeasuredDimension()方法中的值的单位都是px(dp*density就是px)。</p>
+<p>2)match_parent并不是填充整个父容器，而是在不覆盖已经加入父容器的控件的情况下填充父容器。</p>
+<p>二、onLayout()方法</p>
+<p>onLayout(boolean changed, int left, int top,int right,int bottom);<br />
+父容器的onLayout()调用子类的onLayout()来确定子view在viewGroup中的位置，如：onLayout(10，10，100，100)表示子容器在父容器中（10，10）位置显示，长、宽都是90。结合onMeasure()方法使用可以确定子view的布局。</p>
+<p>三、onDraw()方法<br />
+onDraw(Canvas canvas)<br />
+自定义view的关键方法，用于绘制界面，可以重写此方法以绘制自定义View。</p>
+<p>转自：http://m.blog.csdn.net/blog/annieliu502/40586277</p>

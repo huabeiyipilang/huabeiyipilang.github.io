@@ -1,0 +1,24 @@
+---
+layout: post
+title: Android Email源码attachment布局文件找不到
+date: 2012-08-21 02:59:24.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- 未分类
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>在Email的Android.mk文件中</p>
+<pre lang="c++">LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, $(res_dir))
+res_dir := $(chips_dir) $(mail_common_dir) res
+mail_common_dir := ../../../frameworks/opt/mailcommon/res</pre>
+<p>所以attachment文件应当在../../../frameworks/opt/mailcommon/res下</p>

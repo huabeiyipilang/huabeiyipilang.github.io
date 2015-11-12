@@ -1,0 +1,52 @@
+---
+layout: post
+title: 关于List排序
+date: 2012-10-15 10:24:06.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- java
+tags:
+- Collections list 排序
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>主要是使用了工具类Collections的sort(List&lt;T&gt; list, Comparator&lt;? extends T&gt; comparator)方法。</p>
+<p>list是想要被排序的列表。</p>
+<p>comparator是排序规则。</p>
+<p>实现Comparator的compare(T lhs, T rhs)方法，返回值为int型，</p>
+<p>大于0表示lhs比rhs大，两个元素位置交换;</p>
+<p>小于0表示lhs比rhs小，位置不变;</p>
+<p>等于0表示两值相等，位置不变。</p>
+<p>&nbsp;</p>
+<pre lang="java">private static void collectionSort(){
+    //new一个ArrayList
+    ArrayList list = new ArrayList();
+
+    //添加元素
+    Collections.addAll(list, "aa","a","aaa");
+
+    //实现Comparator接口
+    Comparator com = new Comparator(){
+        @Override
+        public int compare(Object l, Object r) {
+            //如果左值l比右值r大，交换位置。
+	    return ((String)l).length() - ((String)r).length();
+	}
+    };
+
+    //排序
+    Collections.sort(list, com);
+
+    //打印结果
+    for(String a:list){
+        System.out.println(a);
+    }
+}</pre>

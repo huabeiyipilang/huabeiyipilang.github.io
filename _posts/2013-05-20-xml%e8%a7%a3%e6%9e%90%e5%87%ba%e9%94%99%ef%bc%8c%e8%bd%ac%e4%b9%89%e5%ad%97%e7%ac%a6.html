@@ -1,0 +1,58 @@
+---
+layout: post
+title: XML解析出错，转义字符
+date: 2013-05-20 03:57:00.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- 问题
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>今天解析XML文件中的一个下载地址出错。发现有转义字符：&amp;</p>
+<p>将 &amp; 换成 &amp;amp; 后，解析只解析出了最后一部分， 查找原因，原来自动在每一个 &amp;amp; 后面加了一个换行符。</p>
+<p>解决方法如下：<br />
+&lt;![CDATA[文本内容]]&gt;<br />
+下载地址用CDATA标记包括。 CDATA标记中的所有内容将不会被解析。</p>
+<p>相关连接：<a href="http://baike.baidu.com/view/1792941.htm">http://baike.baidu.com/view/1792941.htm</a></p>
+<p>&nbsp;</p>
+<p>相关信息：</p>
+<p><span style="font-size: small;">下面是五个在<span style="font-family: 'Times New Roman';">XML</span>文档中预定义好的转义字符：</span></p>
+<table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="142"><span style="font-family: 'Times New Roman'; font-size: small;">&amp;lt;</span></td>
+<td valign="top" width="142"><span style="font-size: small;"><span style="font-family: 'Times New Roman';">&lt; </span></span><span style="font-family: Verdana; font-size: medium;"> </span></td>
+<td valign="top" width="142"><span style="font-size: small;">小于号</span></td>
+</tr>
+<tr>
+<td valign="top" width="142"><span style="font-family: 'Times New Roman'; font-size: small;">&amp;gt;</span></td>
+<td valign="top" width="142"><span style="font-size: small;"><span style="font-family: 'Times New Roman';">&gt; </span></span><span style="font-family: Verdana; font-size: medium;"> </span></td>
+<td valign="top" width="142"><span style="font-size: small;">大于号</span></td>
+</tr>
+<tr>
+<td valign="top" width="142"><span style="font-family: 'Times New Roman'; font-size: small;">&amp;amp;</span></td>
+<td valign="top" width="142"><span style="font-family: 'Times New Roman'; font-size: small;">&amp;</span></td>
+<td valign="top" width="142"><span style="font-size: small;">和</span></td>
+</tr>
+<tr>
+<td valign="top" width="142"><span style="font-family: 'Times New Roman'; font-size: small;">&amp;apos;</span></td>
+<td valign="top" width="142"><span style="font-family: 'Times New Roman'; font-size: small;">'</span></td>
+<td valign="top" width="142"><span style="font-size: small;">单引号</span></td>
+</tr>
+<tr>
+<td valign="top" width="142"><span style="font-family: 'Times New Roman'; font-size: small;">&amp;quot;</span></td>
+<td valign="top" width="142"><span style="font-family: 'Times New Roman'; font-size: small;">"</span></td>
+<td valign="top" width="142"><span style="font-size: small;">双引号</span></td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-size: small;">　　转义字符必须以符号<span style="font-family: 'Times New Roman';">"&amp;"</span>开头，以符号<span style="font-family: 'Times New Roman';">";"</span>结尾。<span style="font-family: 'Times New Roman';"> </span></span></p>

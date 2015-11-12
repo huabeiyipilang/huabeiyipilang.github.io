@@ -1,0 +1,22 @@
+---
+layout: post
+title: FrameLayout的layout_marginTop属性失效的问题
+date: 2015-09-07 17:33:33.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+- 问题
+tags: []
+meta:
+  _edit_last: '1'
+  _wpas_done_all: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>在Android3.0以下的平台上，FrameLayout内部的LinearLayout控件设置android:layout_marginTop属性是没有效果的，而ImageView控件设置android:layout_marginTop属性是有效果的。解决办法是对LinearLayout控件设置android:layout_gravity="top"属性。</p>

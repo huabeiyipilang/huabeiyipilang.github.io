@@ -1,0 +1,26 @@
+---
+layout: post
+title: android 判断当前横竖屏
+date: 2013-07-05 08:58:29.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+tags:
+- 横竖屏
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<pre lang="java">Configuration config = mContext.getResources().getConfiguration();
+if(config.orientation == Configuration.ORIENTATION_PORTRAIT){
+    //竖屏
+}else if(config.orientation ==Configuration.ORIENTATION_LANDSCAPE){
+    //横屏
+}</pre>

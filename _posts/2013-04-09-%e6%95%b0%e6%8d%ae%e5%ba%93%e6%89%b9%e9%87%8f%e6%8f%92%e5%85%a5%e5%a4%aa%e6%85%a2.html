@@ -1,0 +1,32 @@
+---
+layout: post
+title: 数据库批量插入太慢
+date: 2013-04-09 10:10:54.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- 未分类
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>今天写了个批量插入数据的小应用，插入1000条数据竟然用了32秒。</p>
+<p>网上查资料发现，android默认一条SQL操作就是一个事务。 解决方法如下：</p>
+<pre lang="java">
+db.beginTransaction();
+for (String word : wordList) {
+//执行插入操作
+}
+db.setTransactionSuccessful();
+db.endTransaction();
+db.close();
+</pre>
+<p>如此优化之后，1000多条数据只用了3.4秒的时间，缩短了10倍。</p>
+<p>参考：<a href="http://www.huomo.cn/developer/article-17aff.html">http://www.huomo.cn/developer/article-17aff.html</a></p>

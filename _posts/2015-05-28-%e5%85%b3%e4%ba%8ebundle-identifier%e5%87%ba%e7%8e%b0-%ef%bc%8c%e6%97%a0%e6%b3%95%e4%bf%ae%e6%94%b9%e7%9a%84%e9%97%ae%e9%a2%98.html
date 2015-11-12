@@ -1,0 +1,22 @@
+---
+layout: post
+title: 关于Bundle Identifier出现"----"，无法修改的问题
+date: 2015-05-28 05:58:58.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- IOS
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>原因是Targets的名称出现了中文。</p>
+<p>本来想通过改Target名称来改应用名，此途径不对。争取做法如下：<br />
+在Info.plist中，把Bundle name改为应用名即可。</p>

@@ -1,0 +1,56 @@
+---
+layout: post
+title: 冒泡排序（C）
+date: 2013-07-26 06:35:03.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- 未分类
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>冒泡排序属于稳定排序<br />
+基本思想：从前向后，两两比较，大的置后，循环N次。</p>
+<p>Origin array: 7 3 2 4<br />
+7 3 2 4                            比较第一二个<br />
+| |<br />
+3 7 2 4                            大的放后面<br />
+# #<br />
+3 7 2 4                            比较第二三个<br />
+| |<br />
+3 2 7 4                            大的放后面<br />
+# #<br />
+3 2 7 4                            比较三四个<br />
+| |<br />
+3 2 4 7                            大的放后面<br />
+# #<br />
+3 2 4 7                            新一轮<br />
+| |<br />
+2 3 4 7<br />
+# #<br />
+2 3 4 7                            比较到倒数第二个即可，最后一个已经是最大值，不必再次比较<br />
+| |<br />
+2 3 4 7<br />
+| |<br />
+Sorted array: 2 3 4 7</p>
+<pre lang="c">
+<![CDATA[
+void maopao(int *a, int len){
+    int i,j;
+    for(i = 0; i < len - 1; i++){
+        for(j = 0; j < len - i - 1; j++){
+            if(a[j] > a[j+1]){
+                exchange(a, j, j+1); //交换元素j和j+1
+            }
+        }
+    }
+}
+]]></pre>

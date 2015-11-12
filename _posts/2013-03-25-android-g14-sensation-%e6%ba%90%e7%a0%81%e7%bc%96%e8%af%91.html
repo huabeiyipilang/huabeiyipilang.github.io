@@ -1,0 +1,45 @@
+---
+layout: post
+title: android G14 sensation 源码编译
+date: 2013-03-25 15:17:11.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+tags:
+- android 源码编译
+- g14
+- pyramid
+- sensation
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>经过近半年时间，尝试过数套代码，历经重重挫折，终于编译成功了G14的rom。 立贴庆祝！<br />
+之前编过CM9、CM10以及其他人改进的代码，要么无法启动，要么显示器驱动有问题，要么耳机驱动有问题，让我一个搞上层的人实在无奈。后来在XDA上下载了albinoman887大婶的<a href="http://forum.xda-developers.com/showthread.php?t=2115520">ROM</a>， android 4.2.1的，用了一段时间，非常好用，基本没BUG，现在已经更新到4.2.2了。后来根据贴子上的方法，下载代码编译，始终编译不过。最后实在搞不定，发私信咨询了一下大婶，原来库转移了～ T_T。下面是编译过程：</p>
+<p>系统环境： Ubuntu 12.04 64<br />
+CPU： Intel(R) Core(TM) i5 CPU M 460 @ 2.53GHz<br />
+内存： 6G</p>
+<p>原帖防盗版：<a href="http://bocaidong.sinaapp.com/?p=87">http://bocaidong.sinaapp.com/?p=87</a></p>
+<p>1、首先按照AOSP官网上的文档，搭建android编译环境：<a title="http://source.android.com/source/initializing.html" href="http://source.android.com/source/initializing.html" target="_blank">http://source.android.com/source/initializing.html</a></p>
+<p>2、下载源码：<a title="https://github.com/Team-Hydra/android" href="https://github.com/Team-Hydra/android" target="_blank">https://github.com/Team-Hydra/android</a><br />
+repo init -u git://github.com/Team-Hydra/android.git -b cm-10.1<br />
+repo sync<br />
+源码大概有十几个G，本人20M带宽，晚上开始下载，睡一觉就下载完毕。<br />
+有时候会出错，连不上服务器，可能是the fucking GFW的原因，多试几次，或者多试几天就行了～</p>
+<p>3、编译<br />
+./vendor/cm/get-prebuilts<br />
+下载编译必须的文件</p>
+<p>lunch cm_pyramid-userdebug<br />
+加载pyramid的编译环境， G14刚出来的时候叫金字塔，还记得那个霸气的广告吗？</p>
+<p>mka bacon<br />
+编译，打包</p>
+<p>4、刷机<br />
+编译完成后，生成一个zip包 out/target/product/pyramid/cm-10.1-20130324-UNOFFICIAL-pyramid.zip<br />
+wipe，install, reboot, 收工！</p>

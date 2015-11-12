@@ -1,0 +1,28 @@
+---
+layout: post
+title: UIView生命周期中的几个方法
+date: 2015-06-12 11:31:51.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- IOS
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<ul>
+<li><span style="color: #ff0000;">-(id)initWithFrame:(CGRect)frame</span> - UIView的指定初始化方法; 总是发送给UIView去初始化, 除非是从一个nib文件中加载的;</li>
+<li><span style="color: #ff0000;">-(id)initWithCoder:(NSCoder *)coder</span> - 从nib文件中加载的时候发送此消息给UIView;</li>
+<li><span style="color: #ff0000;">-(void)awakeFromNib</span> - 在所有的nib中的对象初始化和连接后将发送此消息; 只适用于从nib加载对象; 如要重写，其中还必须调用父类的awakeFromNib;</li>
+<li><span style="color: #ff0000;">-(void)willMoveToSuperview:(UIView *)newSuperview</span> - 在一个子视图将要被添加到另一个视图的时候发送此消息;</li>
+<li><span style="color: #ff0000;">-(void)willMoveToWindow:(UIWindow *)newWindow</span> - 在一个视图（或者它的超视图）将要被添加到window的时候发送;</li>
+<li><span style="color: #ff0000;">-(void)didMoveToSuperview</span> - 把一个视图插入到视图层级之后发送此消息;</li>
+<li><span style="color: #ff0000;">-(void)didMoveToWindow</span> - 当视图获得它的window属性集的时候发送此消息.</li>
+</ul>

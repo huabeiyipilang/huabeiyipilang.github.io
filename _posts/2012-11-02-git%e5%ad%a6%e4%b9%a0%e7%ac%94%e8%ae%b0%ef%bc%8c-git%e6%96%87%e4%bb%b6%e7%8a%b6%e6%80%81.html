@@ -1,0 +1,51 @@
+---
+layout: post
+title: git学习笔记， git文件状态
+date: 2012-11-02 07:36:40.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- git
+tags:
+- git
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>公司刚从svn转到git，今天简单的看了两章progit.pdf，做一下笔记。</p>
+<p>&nbsp;</p>
+<p>本地项目目录项的文件分两种：</p>
+<ul>
+<li>untracked files: 未被追踪的文件，也就是未被git管理的文件</li>
+<li>tracked files：被追踪的文件，也就是被git所管理的文件</li>
+</ul>
+<p>git所管理的文件（tracked files）有三种状态：</p>
+<ul>
+<li>unmodifid/commited: 未修改，或者说已提交</li>
+<li>modified:已修改</li>
+<li>staged: 已暂存</li>
+</ul>
+<p>实例流程：</p>
+<ol>
+<li>vi README，在项目中新建一个文件README，（untracked files）</li>
+<li>git add README， 将README纳入git管理范围。（staged）</li>
+<li>git commit -m "add new file README"，提交文件。（commited）</li>
+<li>vi README，修改文件。 （modified）</li>
+<li>git add README，将修改文件暂存 。（staged）</li>
+<li>git commit -m "modify README"，提交文件 （commited）</li>
+<li>git rm README，从git中删除文件（untracked ）</li>
+</ol>
+<p>撤销操作：</p>
+<ul>
+<li>撤销修改：git checkout</li>
+<li>撤销暂存：git reset</li>
+<li>没有撤销提交的操作，只有补充提交：git commit -amend，将本次提交合并到上次提交中</li>
+</ul>
+<p><a href="http://bocaidong-wordpress.stor.sinaapp.com/uploads/2012/11/git.bmp"><img class="alignnone size-full wp-image-69" title="git文件状态图" src="{{ site.baseurl }}/assets/git.bmp" alt="git文件状态图" /></a></p>
+<p>&nbsp;</p>

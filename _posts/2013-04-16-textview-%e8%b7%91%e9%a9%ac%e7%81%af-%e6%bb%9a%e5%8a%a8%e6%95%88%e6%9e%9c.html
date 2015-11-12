@@ -1,0 +1,38 @@
+---
+layout: post
+title: TextView 跑马灯 滚动效果
+date: 2013-04-16 08:08:15.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+tags:
+- TextView
+- 滚动
+- 跑马灯
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<pre lang="xml">
+<textView  xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/textview"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:gravity="center_horizontal"
+   android:ellipsize="marquee"----跑马灯
+   android:singleLine="true"----单行显示
+   android:focusable="true"----该textView适中获取焦点，只有获取焦点才能实现跑马灯效果，当然喽如果是多个TextView列表需要把这个属性去掉才能实现点击那个view那个view跑
+   android:marqueeRepeatLimit="marquee_forever"----一直循环跑（可以换成相应数字此时对应-1），把这句去掉也可以实现循环跑纳闷，环境是模拟器4.0
+   android:focusableInTouchMode="true"----该句必须有
+   android:text="Hello World, I am a string wo是跑马灯   跑阿帕啊打发第三方地方!"
+   />
+
+</pre>
+<p>参考：<a href="http://blog.csdn.net/davidtps/article/details/7046595">http://blog.csdn.net/davidtps/article/details/7046595</a></p>

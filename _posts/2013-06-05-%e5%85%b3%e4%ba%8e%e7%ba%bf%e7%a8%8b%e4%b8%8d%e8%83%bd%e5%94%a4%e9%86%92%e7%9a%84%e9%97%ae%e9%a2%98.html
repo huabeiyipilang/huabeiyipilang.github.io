@@ -1,0 +1,23 @@
+---
+layout: post
+title: 关于线程不能唤醒的问题
+date: 2013-06-05 02:54:41.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- 问题
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>纯粹是个失误， 使用了个 Integer mLock， 线程wait()时， mLock会被赋值，导致mLock在wait时和notify时不是一个对象。所以线程一直无法唤醒。解决方法：</p>
+<p>class Lock{</p>
+<p>int value;</p>
+<p>}</p>

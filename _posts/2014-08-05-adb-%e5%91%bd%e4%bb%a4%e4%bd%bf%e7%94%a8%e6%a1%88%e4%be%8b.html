@@ -1,0 +1,44 @@
+---
+layout: post
+title: adb 命令使用案例
+date: 2014-08-05 07:29:13.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+tags:
+- adb
+- android
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<h3 id="杀进程根据进程名">杀进程，根据进程名</h3>
+<pre><code>adb shell busybox killall [process name] </code></pre>
+<p>例如：adb shell busybox killall com.android.phone</p>
+<hr />
+<h3 id="发送按键信息">发送按键信息</h3>
+<pre><code>adb shell input keyevent [keycode] (keycode详见[KeyEvent.java][1]) </code></pre>
+<p>例如：adb shell input keyevent 82 (发送menu键)</p>
+<hr />
+<h3 id="安装app">安装APP</h3>
+<pre><code>adb install [apk path] </code></pre>
+<p>例如：adb install c:kankan.apk</p>
+<hr />
+<h3 id="卸载app">卸载APP</h3>
+<pre><code>adb uninstall [package name] </code></pre>
+<p>例如：adb uninstall com.xunlei.kankan.tv</p>
+<hr />
+<h3 id="清空应用数据">清空应用数据</h3>
+<pre><code>adb shell pm clear [package name] </code></pre>
+<p>例如：adb shell pm clear com.xunlei.kankan.tv</p>
+<hr />
+<h3 id="打开app">打开APP</h3>
+<pre><code>adb shell am start -n [package name]/[class name] </code></pre>
+<p>例如：adb shell am start -m com.xunlei.kankan.tv/com.kankan.tv.StartupActivity</p>

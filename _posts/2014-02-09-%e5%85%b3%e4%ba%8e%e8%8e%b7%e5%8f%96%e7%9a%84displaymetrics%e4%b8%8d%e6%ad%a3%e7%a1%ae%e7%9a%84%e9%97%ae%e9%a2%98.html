@@ -1,0 +1,23 @@
+---
+layout: post
+title: 关于获取的DisplayMetrics不正确的问题
+date: 2014-02-09 09:35:37.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- 问题
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>最近想把源码里面的Launcher移植出来，配置到eclipse当做。</p>
+<p>配置完成后，安装到手机上，发现图标很模糊，尺寸也不对。而且获取的DisplayMetrics中的值也跟事实不一样。</p>
+<p>最后从stackoverflow找答案，发现原来是&lt;use-sdk&gt;没有配置。</p>
+<p><a href="http://stackoverflow.com/questions/8566610/displaymetrics-wrong-numbers/8699317#8699317">http://stackoverflow.com/questions/8566610/displaymetrics-wrong-numbers/8699317#8699317</a></p>

@@ -1,0 +1,33 @@
+---
+layout: post
+title: 关于ViewController黑屏的问题
+date: 2015-05-06 03:28:02.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- IOS
+tags: []
+meta:
+  _edit_last: '1'
+  _syntaxhighlighter_encoded: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>情况是这样的~：</p>
+<p style="padding-left: 30px;">1、用的StoryBoard</p>
+<p style="padding-left: 30px;">2、跳转代码：</p>
+<p>[objc]<br />
+    DetailViewController* detailController = [[DetailViewController alloc]init];<br />
+    [self presentViewController:detailController animated:YES completion:nil];<br />
+[/objc]</p>
+<p>解决：<br />
+1、在StoryBoard中，给DetailViewController的Storyboard ID命名为detail_controller<br />
+2、获取DetailViewController实例的代码改为<br />
+[objc]<br />
+    DetailViewController* detailController = [self.storyboard instantiateViewControllerWithIdentifier:@&quot;detail_controller&quot;];<br />
+[/objc]</p>

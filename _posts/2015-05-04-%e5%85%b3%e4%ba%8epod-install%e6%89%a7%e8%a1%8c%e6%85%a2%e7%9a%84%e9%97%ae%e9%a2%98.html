@@ -1,0 +1,24 @@
+---
+layout: post
+title: 关于Pod install执行慢的问题
+date: 2015-05-04 09:54:04.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- IOS
+tags:
+- pod
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>今天执行Pod install的时候，卡在了Analyzing dependencies。于是上网一搜：</p>
+<p>原因在于当执行以上两个命令的时候会升级CocoaPods的spec仓库，加一个参数可以省略这一步，然后速度就会提升不少。加参数的命令如下：</p>
+<p><em><strong>pod install --verbose --no-repo-update</strong></em></p>
+<p><em><strong>pod update --verbose --no-repo-update</strong></em></p>

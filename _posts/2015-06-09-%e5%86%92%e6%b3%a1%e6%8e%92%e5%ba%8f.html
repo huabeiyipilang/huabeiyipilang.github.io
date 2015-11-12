@@ -1,0 +1,38 @@
+---
+layout: post
+title: 冒泡排序
+date: 2015-06-09 17:19:06.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- 算法
+tags: []
+meta:
+  _edit_last: '1'
+  _syntaxhighlighter_encoded: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>基本思路：从前向后遍历，对比相邻的两个值，如果前值比后值大，则交换。<br />
+[java]<br />
+    private static void bubbleSort(int[] array){<br />
+        int tmp;<br />
+        //从第一个向后遍历<br />
+        for(int i = 0; i &lt; array.length; i++){</p>
+<p>            //不必遍历到最后，因为后i个值是已经排序好了的<br />
+            for(int j = 0; j &lt; array.length - i - 1; j++){</p>
+<p>                //对比当前值和后面的值，如果前面的值大，则交换位置，反之则不交换<br />
+                if(array[j] &gt; array[j+1]){<br />
+                    tmp = array[j];<br />
+                    array[j] = array[j+1];<br />
+                    array[j+1] = tmp;<br />
+                }<br />
+            }<br />
+        }<br />
+    }<br />
+[/java]</p>

@@ -1,0 +1,81 @@
+---
+layout: post
+title: 单链表翻转算法-递归
+date: 2015-07-07 11:09:18.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- 算法
+tags: []
+meta:
+  _edit_last: '1'
+  _wpas_done_all: '1'
+  _syntaxhighlighter_encoded: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>[java]<br />
+public class test {</p>
+<p>    //保存当前头节点<br />
+    private static Node currentHeader;</p>
+<p>    //节点类<br />
+    private static class Node{<br />
+        int data = 0;<br />
+        Node next = null;</p>
+<p>        Node(int data, Node next){<br />
+            this.data = data;<br />
+            this.next = next;<br />
+        }<br />
+    }</p>
+<p>    public static void main(String[] args) {</p>
+<p>        //新建单链表<br />
+        Node node3 = new Node(3, null);<br />
+        Node node2 = new Node(2, node3);<br />
+        Node node1 = new Node(1, node2);</p>
+<p>        //翻转链表1<br />
+        reverse1(node1);</p>
+<p>        //翻转链表2<br />
+        Node tail = reverse2(node3);<br />
+        //把尾结点next置空<br />
+        tail.next = null;</p>
+<p>        System.out.println(&quot;finish&quot;);<br />
+    }</p>
+<p>    //递归方法1：从头节点向尾结点翻转<br />
+    private static void reverse1(Node node){<br />
+        if(node.next == null){<br />
+            //next为null，说明是翻转之前的尾结点，他的next指向上一次运算单元结束后的头节点。<br />
+            node.next = currentHeader;<br />
+            //递归结束，不在继续。<br />
+        }else{<br />
+            //保存下一个结点<br />
+            Node nextNode = node.next;</p>
+<p>            //next指向上一次运算单元结束后的头节点<br />
+            node.next = currentHeader;</p>
+<p>            //该节点作为新的头节点<br />
+            currentHeader = node;</p>
+<p>            //将下一个结点继续递归<br />
+            reverse1(nextNode);<br />
+        }<br />
+    }</p>
+<p>    //递归方法2：从尾节点向头结点翻转<br />
+    private static Node reverse2(Node node){<br />
+        if(node.next == null){<br />
+            //next为null，说明是翻转之前的尾结点，他的next指向上一次运算单元结束后的头节点。<br />
+            //返回该结点，作为翻转之后的尾节点。<br />
+            return node;<br />
+        }else{<br />
+            //得到翻转之后的尾节点<br />
+            Node tail = reverse2(node.next);<br />
+            //尾节点的next指向当前节点<br />
+            tail.next = node;<br />
+            //返回该结点，作为翻转之后的尾节点。<br />
+            return node;<br />
+        }<br />
+    }<br />
+}<br />
+[/java]</p>

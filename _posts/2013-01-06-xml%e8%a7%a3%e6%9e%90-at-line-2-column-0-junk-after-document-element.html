@@ -1,0 +1,37 @@
+---
+layout: post
+title: 'XML解析 At line 2, column 0: junk after document element'
+date: 2013-01-06 03:42:41.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+- 问题
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: carl
+  email: huabeiyipilang@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+---
+<p>今天写一个解析xml文件的功能，用了SAX解析方法，报了如下错误：</p>
+<p>At line 2, column 0: junk after document element</p>
+<p>XML文件如下：</p>
+<pre lang="xml">
+<update_list_version>1</update_list_version>
+<update>
+    <index>1</index>
+    <version>1.1.1</version>
+    <description>just for test</description>
+    <url>http://www.baidu.com/img/baidu_sylogo1.gif</url>
+    <size>1024</size>
+    <next_version>2</next_version>
+    <pre_version></pre_version>
+</update>
+</pre>
+<p>原因：<br />
+XML中只能由一个根节点，把&lt;update_list_version&gt;这个标签去掉就正常了。</p>
