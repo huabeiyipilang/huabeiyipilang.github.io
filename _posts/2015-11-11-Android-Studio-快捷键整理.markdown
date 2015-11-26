@@ -7,6 +7,7 @@ published: true
 ---
 
 
+
 ##Command+O
 快速定位类
 
@@ -31,9 +32,11 @@ published: true
 ##ALT+Command+L
 格式化代码
 
-Command+X 删除行
+##Command+X 
+剪切行
 
-Command+D 复制行
+##Command+D
+复制行
 
 Command+Shift+Up/Down 代码向上/下移动。
 
