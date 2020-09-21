@@ -28,11 +28,35 @@
             opacity: 0.6
         }
     </style>
+
+    <script>
+        function closeClick() {
+            print("print");
+            window.WebViewJavascriptBridge.callHandler(
+                'closeVideoDetailWebView'
+                , {
+                    "action": "",
+                    "__msg_type": "",
+                    "__callback_id": "123",
+                    "params": {
+                        "type": "pay",
+                        "result": 1,
+                        "toast": "测试点击"
+                    }
+                }
+                , function (responseData) {
+                }
+            );
+        }
+    </script>
 </head>
 
 <body>
-    <div class="a">111111</div>
-    <div class="b">22222</div>
+    <div class="a">
+    </div>
+    <div class="b">
+        <button type="button" onclick="closeClick()">Close</button>
+    </div>
 </body>
 
 </html>
